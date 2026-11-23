@@ -26,6 +26,9 @@ Sumber arahan lanjutan: komentar founder `ocinux` di https://github.com/ocinux/j
 | Buat GitHub Issues setelah backlog diperbarui. Issues saja, belum coding; item tunnel/fitur lanjutan dipisah dari jalur inti. | Disetujui | Review 2026-11-23 |
 | Privasi/keamanan minimum wajib ada sebelum upload yang dapat diakses publik diuji. | Disetujui | Review 2026-11-23 |
 
+| Klarifikasi jalur inti disetujui: urut #2→#10 lalu #11; #12–#15 non-blocking; jalur inti diuji lokal/LAN tanpa tunnel; #2 requirement PHP/Composer + tanpa kredensial default dikomit + PWA tidak cache login/privat; #3–#4 token tidak masuk log + usul angka rate limit + bukti uji; #5–#6 aturan RSVP anti-duplikat ditetapkan + guest list/CSV tetap sederhana; #8 JPEG/PNG minimum, HEIC/video/EXIF/ZIP hanya jika realistis; #9 pending/hidden harus 404/403 via URL langsung; #10 backup DB+media, restore diuji. Klarifikasi ditulis di body Issues. | Disetujui | Review founder 2026-11-23 |
+| Setelah klarifikasi diperbarui: agen boleh mulai jalur inti; tidak ada coding di luar scope issue + acceptance criteria. | Disetujui | Review founder 2026-11-23 |
+
 ## Belum disetujui / terbuka
 
 - Batas upload final (25 MB, video ≤2 menit) dikunci hanya setelah terbukti realistis diuji dalam jadwal.

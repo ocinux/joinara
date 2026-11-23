@@ -6,19 +6,28 @@ Sumber arahan lanjutan: komentar founder `ocinux` di https://github.com/ocinux/j
 |---|---|---|
 | MIT lisensi final; hak mengikuti teks LICENSE, bukan klaim hak tambahan. | Disetujui | Konfirmasi chat founder |
 | Operating Plan disetujui secara prinsip dengan koreksi di PR #1. | Disetujui prinsip | PR #1 |
-| Laravel frontend dan backend, satu aplikasi. Detail versi, database, storage belum final. | Disetujui | PR #1 |
-| Target MVP maksimal 7 hari. Tanggal mulai kalender perlu dikonfirmasi; jadwal backlog relatif D1–D7. | Disetujui target | PR #1 |
-| Landing, undangan, RSVP, guest list, QR check-in dasar, upload foto dan galeri privat dengan moderasi sederhana. | Scope disetujui | PR #1 |
-| Mobile-first, responsif, PWA manifest dan service worker dasar. Tidak ada klaim offline untuk upload/RSVP/check-in tanpa tes. | Disetujui | PR #1 |
-| madbox.io referensi visual/interaksi saja, bukan untuk disalin atau mengasumsikan stack. Animasi 2D ringan, aksesibilitas, performa ponsel, prefers-reduced-motion. | Disetujui | PR #1 |
-| Tunda Google Drive, custom domain, seating plan, slideshow, analytics lanjutan, pembayaran, 3D/Three.js. | Disetujui | PR #1 |
-| Tunnel HTTPS lokal opsional; PoC aman diperlukan sebelum dimasukkan MVP. Jangan ekspos app tanpa kontrol akses dan validasi upload. | Disetujui arah evaluasi | PR #1 |
-| ICP pasangan menyiapkan pernikahan di Indonesia; WO/vendor sekunder. | Arahan awal; perlu validasi | PR #1, Q1 |
-| Kumpulkan/kelola foto-video tanpa instal app, sekaligus undangan dan guest management. Belum terbukti masalah termahal. | Hipotesis produk | PR #1, Q2 |
-| Wedding saja untuk MVP. Event umum ditunda. | Disetujui | PR #1, Q3 |
-| Target angka validasi belum ditetapkan; usulan harus disetujui founder. | Terbuka | PR #1, Q4 |
-| Perbarui dokumen dan Issues, minta review founder. Jangan merge PR #1 atau implementasi tanpa approval eksplisit founder. Tidak mulai coding saat ini. | Disetujui | PR #1 |
+| Laravel frontend dan backend, satu aplikasi. | Disetujui | PR #1 |
+| Target MVP maksimal 7 hari; mulai kalender dihitung sejak issue implementasi disetujui dan dimulai. | Disetujui target | PR #1; review 2026-11-23 Q9 |
+| Scope inti: landing, halaman undangan, RSVP, guest list, QR check-in dasar, upload foto/video + galeri privat bermoderasi. | Scope disetujui | PR #1 |
+| Mobile-first, responsif, PWA manifest + SW dasar; tidak ada klaim offline fungsional. | Disetujui | PR #1 |
+| madbox.io referensi visual/interaksi saja; anti-copy; animasi 2D ringan; aksesibilitas + prefers-reduced-motion. | Disetujui | PR #1 |
+| Tunda Google Drive, custom domain, seating, slideshow, analytics lanjut, pembayaran, 3D/Three.js. | Disetujui | PR #1 |
+| ICP pasangan Indonesia; WO/vendor sekunder. | Arahan awal; perlu validasi | PR #1, Q1 |
+| Foto-video tanpa instal app = masalah yang diuji. | Hipotesis produk; bukan terbukti | PR #1 Q2; ditegaskan review 2026-11-23 |
+| Wedding saja untuk MVP. | Disetujui | PR #1, Q3 |
+| Merge ke main/PR hanya dengan approval eksplisit founder. | Disetujui | PR #1; Q10 |
+| Hosted service ditunda; self-host/local pilot saja; tunnel = PoC opsional, bukan jaminan hosting. | Disetujui | Review 2026-11-23, Q5 |
+| Privasi: galeri privat; akses via token event; media baru pending; approve/hide/hapus oleh owner; pemegang tautan TIDAK melihat media pending; permintaan hapus manual; retensi sampai owner menghapus. | Disetujui | Review 2026-11-23, Q6 |
+| QR check-in online-only; PWA cache aset saja; fallback pencarian nama/manual wajib. | Disetujui | Review 2026-11-23, Q7 |
+| SQLite + disk lokal disetujui SEMENTARA untuk MVP lokal via Eloquent/migrasi; bukan keputusan produksi/hosted; batas SQLite didokumentasikan; evaluasi ulang sebelum skenario multi-user. Batas upload 25 MB/file + video ≤2 menit dipertahankan hanya jika realistis diuji. Kapasitas/backup/penghapusan wajib didokumentasikan. | Disetujui sementara | Review 2026-11-23, Q8 |
+| Waktu: 7 hari sejak implementasi disetujui; budget tambahan Rp0 tanpa persetujuan; pakai tooling tersedia. | Disetujui | Review 2026-11-23, Q9 |
+| Siap pilot = founder tes manual happy path + test report + 1 event pilot. Founder satu-satunya approver merge/scope/biaya. | Disetujui | Review 2026-11-23, Q10 |
+| Angka validasi Q4 (5 pasangan, 3 WO, ≥1 event nyata, RSVP ≥50%, upload ≥20%). | Disetujui sebagai target eksperimen awal; bukan klaim validasi / syarat final | Review 2026-11-23 |
+| Buat GitHub Issues setelah backlog diperbarui. Issues saja, belum coding; item tunnel/fitur lanjutan dipisah dari jalur inti. | Disetujui | Review 2026-11-23 |
+| Privasi/keamanan minimum wajib ada sebelum upload yang dapat diakses publik diuji. | Disetujui | Review 2026-11-23 |
 
-## Belum disetujui
+## Belum disetujui / terbuka
 
-Database/storage final, batas kapasitas/retensi, hosted MVP, kebutuhan offline, anggaran, start date, jalur approval pilot, target validasi. Lihat `product-context.md` dan `founder-questions.md` untuk usulan, bukan keputusan.
+- Batas upload final (25 MB, video ≤2 menit) dikunci hanya setelah terbukti realistis diuji dalam jadwal.
+- Tanggal kalender mulai/done: dihitung saat issue implementasi disetujui.
+- Keputusan produksi/hosted (DB final, storage hosted, multi-user) — dievaluasi ulang pasca-MVP.

@@ -6,6 +6,8 @@ Legenda: P0 = wajib MVP · P1 = jalur terpisah/PoC · P2 = ditunda eksplisit.
 Aturan: founder satu-satunya approver merge/scope/biaya; siap pilot = tes manual founder + test report + 1 event pilot (Q10).
 
 ## P0 — jalur inti (urutan build)
+Mapping GitHub Issues (dibuat 2026-11-23): #1→issue #2, #2→#3, #3→#4, #4→#5, #5→#6, #6→#7, #7→#8, #8→#9, #9→#10; P1: test→#11, tunnel→#12; P2: Drive→#13, tracker→#14; riset→#15.
+
 1. **Scaffold Laravel** — SQLite + disk lokal (sementara, Q8), auth owner session, migrasi (event, guest, rsvp, media, check-in), PWA manifest + SW cache aset statis saja. Catatan batas SQLite di README dev.
 2. **Event & tautan undangan** — owner buat event (pasangan, tanggal, detail, template 2D ringan), token unik per event (tidak tertebak), QR dari URL token, halaman "buat undangan" pertama.
 3. **Privasi & keamanan minimum** — WAJIB sebelum fitur upload publik diuji (catatan founder): rate limit, validasi MIME/ukuran server-side, halaman privasi singkat, jalur permintaan hapus data manual (email/form → owner hapus).

@@ -1,6 +1,6 @@
 # Joinara AI Co-founder Operating Plan
 
-Status: DRAFT — menunggu persetujuan founder.
+Status: DISSETUJUI secara prinsip oleh founder 2026-11-20 dengan koreksi/batasan di thread PR #1 (lihat `decision-log.md`).
 Sumber kebenaran: GitHub Issues (pekerjaan), GitHub PRs (kode/review), `docs/product-context.md`, `docs/decision-log.md`, `docs/backlog.md`. Jika sumber bertentangan, konflik ditunjukkan dan founder yang menentukan.
 
 ## Prinsip
@@ -53,6 +53,13 @@ Urutan default: founder → cofounder-product → product-design (jika diperluka
 - Model fallback/switch bukan review independen; selalu laporkan dasar bukti.
 - Anti-pattern: agent berdiskusi tanpa artefak, mengunci keputusan tanpa founder, merge sendiri, memakai secret di dokumen.
 
-## Status: menunggu persetujuan founder
+## Koreksi founder (PR #1, 2026-11-20)
 
-Draft ini belum disetujui. Setelah founder setuju, jadikan baseline dan simpan keputusan terkait di decision-log.
+- Ritme kerja: semua pekerjaan dipecah menjadi GitHub Issues kecil, berurutan, realistis selesai+teruji dalam jendela MVP 7 hari.
+- Asumsi dan keputusan teknis belum final harus ditandai; ajukan trade-off sebelum mengunci pilihan atau menambah biaya.
+- Merge ke `main` — PR dokumen maupun PR implementasi — hanya dengan approval eksplisit founder.
+- Setelah dokumen + Issues diperbarui: minta review founder sebelum mengunci keputusan teknis atau mulai pekerjaan di luar scope MVP.
+
+## Status
+
+Baseline disetujui secara prinsip. Koreksi di atas menjadi pengikat; detail tambahan dicatat via decision-log, bukan mengubah dokumen ini diam-diam.

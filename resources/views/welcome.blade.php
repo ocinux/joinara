@@ -270,6 +270,8 @@
             </main>
         </div>
 
+        <a class="mx-auto my-auto mt-4 px-2 text-center text-sm text-[#706f6c] hover:underline dark:text-[#A1A09A]" href="{{ route('privacy') }}">Kebijakan privasi</a>
+
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif

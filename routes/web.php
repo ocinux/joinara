@@ -6,7 +6,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\InvitationController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn () => redirect('/dashboard'));
+Route::get('/', fn () => auth()->check() ? redirect('/dashboard') : view('welcome'))->name('home');
 
 // Static PWA assets: routes keep them reachable even without a web-server static handler
 // (php artisan serve and Apache/Nginx serve public/ directly; routes cover tests + odd hosts).
@@ -34,5 +34,17 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Public — invitation pages reached via the unguessable token; invalid token -> 404
-Route::get('/u/{token}', [InvitationController::class, 'show'])->name('invitation.show');
-Route::get('/u/{token}/checkin', [InvitationController::class, 'checkin'])->name('invitation.checkin');
+Route::get('/privasi', fn () => view('pages.privacy'))->name('privacy');
+
+Route::get('/u/{token}', [InvitationController::class, 'show'])
+    ->name('invitation.show')
+    ->middleware('throttle:invitation');
+Route::get('/u/{token}/checkin', [InvitationController::class, 'checkin'])
+    ->name('invitation.checkin')
+    ->middleware('throttle:checkin');
+Route::post('/u/{token}/rsvp', [InvitationController::class, 'rsvp'])
+    ->name('invitation.rsvp')
+    ->middleware('throttle:rsvp');
+Route::post('/u/{token}/photos', [InvitationController::class, 'photos'])
+    ->name('invitation.photos')
+    ->middleware('throttle:upload');

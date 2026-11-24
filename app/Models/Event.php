@@ -33,6 +33,11 @@ class Event extends Model
         return $this->hasMany(Guest::class);
     }
 
+    public function media()
+    {
+        return $this->hasMany(Media::class);
+    }
+
     /**
      * Unguessable, non-sequential random token (62^32 combinations).
      * Retries on the (astronomically unlikely) unique-index collision.

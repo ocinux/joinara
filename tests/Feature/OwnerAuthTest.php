@@ -13,8 +13,8 @@ class OwnerAuthTest extends TestCase
     public function test_guest_visiting_dashboard_is_redirected_to_login(): void
     {
         $this->get('/dashboard')->assertRedirect('/login');
-        $this->get('/')->assertRedirect('/dashboard');
-        $this->get('/', ['Accept' => 'text/html']);
+        // MVP-3: unauthenticated landing shows the welcome page (privacy link reachable)
+        $this->get('/')->assertOk()->assertSee('Kebijakan privasi');
     }
 
     public function test_owner_can_login_with_valid_credentials(): void

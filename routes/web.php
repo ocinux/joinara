@@ -4,9 +4,14 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn () => redirect('/dashboard'));
+// Landing publik — tamu yang belum login melihat halaman ini.
+Route::get('/', [WelcomeController::class, 'index']);
+
+// Admin panel alias — tetap di bawah middleware auth supaya hanya owner yang akses.
+Route::redirect('/admin', '/dashboard')->name('admin');
 
 // Static PWA assets: routes keep them reachable even without a web-server static handler
 // (php artisan serve and Apache/Nginx serve public/ directly; routes cover tests + odd hosts).

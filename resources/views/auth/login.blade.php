@@ -26,7 +26,13 @@
             <button type="submit">Masuk</button>
         </form>
     </div>
-    <p class="footer">Joinara MVP — scaffold. Login hanya tersedia untuk owner yang dibuat.</p>
+    <p class="footer">Joinara MVP — undangan digital wedding-first.</p>
+    <div class="demo-note card">
+        <h2>Demo cepat</h2>
+        <p>Untuk mencoba tanpa membuat akun baru, jalankan:</p>
+        <pre><code>php artisan joinara:owner --demo</code></pre>
+        <p>Kredensial demo akan tampil di terminal. Tidak ada kredensial default yang tersimpan di repo.</p>
+    </div>
 </div>
 </body>
 </html>

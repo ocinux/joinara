@@ -10,11 +10,15 @@ use App\Models\User;
 
 class CreateOwnerCommand extends Command
 {
-    protected $signature = 'joinara:owner';
+    protected $signature = 'joinara:owner {--demo : Buat owner demo + event contoh, password acak dicetak sekali}';
     protected $description = 'Buat/update owner pertama untuk Joinara (MVP). Tidak menulis kredensial ke file/config.';
 
     public function handle(): int
     {
+        if ($this->option('demo')) {
+            return $this->demo();
+        }
+
         $this->info('=== JOINARA OWNER SETUP ===');
         $this->line('Isi email dan password untuk owner. Password ditulis aman (hashed) saja.');
 
@@ -52,6 +56,37 @@ class CreateOwnerCommand extends Command
 
         $this->line("Owner '{$user->email}' tersimpan.");
         $this->warn('Simpan kredensial di tempat aman (password manager). Jangan commit kredensial.');
+        return Command::SUCCESS;
+    }
+
+    // ponytail: demo data hanya untuk uji lokal; hapus bila event demo dibuat manual
+    private function demo(): int
+    {
+        $email = 'demo@joinara.test';
+        $password = Str::random(10);
+
+        $user = User::updateOrCreate(
+            ['email' => $email],
+            ['name' => 'Owner Demo', 'password' => Hash::make($password)]
+        );
+
+        if ($user->events()->count() === 0) {
+            $user->events()->create([
+                'name' => 'Pernikahan Demo',
+                'partner_1' => 'Rina',
+                'partner_2' => 'Bima',
+                'starts_at' => now()->addDays(30)->setTime(10, 0),
+                'location' => 'Balai Kartini, Jakarta',
+            ]);
+        }
+
+        $event = $user->events()->first();
+
+        $this->info('=== JOINARA DEMO ===');
+        $this->line('Email:    ' . $user->email);
+        $this->line('Password: ' . $password);
+        $this->line('Event:    ' . $event->name . ' (undangan: /u/' . $event->invitation_token . ')');
+        $this->warn('Password ini hanya ditampilkan sekali. Reset dengan jalankan ulang --demo.');
         return Command::SUCCESS;
     }
 }

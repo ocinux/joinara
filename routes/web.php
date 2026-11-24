@@ -35,4 +35,6 @@ Route::middleware(['auth'])->group(function () {
 
 // Public — invitation pages reached via the unguessable token; invalid token -> 404
 Route::get('/u/{token}', [InvitationController::class, 'show'])->name('invitation.show');
+Route::post('/u/{token}/rsvp', [InvitationController::class, 'rsvp'])
+    ->middleware('throttle:10,1')->name('invitation.rsvp');
 Route::get('/u/{token}/checkin', [InvitationController::class, 'checkin'])->name('invitation.checkin');

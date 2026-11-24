@@ -24,6 +24,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'owner_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

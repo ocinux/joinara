@@ -30,8 +30,9 @@
     <h1>Halo, {{ auth()->user()->name }}</h1>
     <div class="card">
         <p>Shell PWA Joinara. PWA assets: <a href="/manifest.webmanifest">manifest</a>, <a href="/css/app.css">CSS</a>, <a href="/sw.js">service worker</a>.</p>
+        <p><a class="btn" href="{{ route('events.index') }}">Kelola event</a></p>
     </div>
-    <p class="footer">Joinara MVP — scaffold. Fitur RSVP, QR check-in, galeri, dan moderasi akan datang.</p>
+    <p class="footer">Joinara MVP — tautan undangan ber-token &amp; QR check-in tersedia per event. RSVP, galeri, dan moderasi menyusul.</p>
 </div>
 </body>
 </html>

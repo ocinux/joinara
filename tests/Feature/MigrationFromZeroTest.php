@@ -7,6 +7,7 @@ use App\Models\Guest;
 use App\Models\Media;
 use App\Models\Rsvp;
 use App\Models\CheckIn;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -24,6 +25,7 @@ class MigrationFromZeroTest extends TestCase
     public function test_core_models_can_be_created_and_related(): void
     {
         $event = Event::create([
+            'owner_id' => User::factory()->create()->id,
             'name' => 'Wedding A & B',
             'starts_at' => now()->addWeek(),
             'location' => 'Bandung',

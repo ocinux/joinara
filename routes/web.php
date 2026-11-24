@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\InvitationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => redirect('/dashboard'));
@@ -23,8 +25,14 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
 });
 
-// Protected — owner dashboard shell
+// Protected — owner dashboard shell + event CRUD (scoped to the owning user)
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::resource('events', EventController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 });
+
+// Public — invitation pages reached via the unguessable token; invalid token -> 404
+Route::get('/u/{token}', [InvitationController::class, 'show'])->name('invitation.show');
+Route::get('/u/{token}/checkin', [InvitationController::class, 'checkin'])->name('invitation.checkin');

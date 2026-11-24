@@ -18,7 +18,7 @@
 <div class="container">
     @if (session('status'))<p class="status">{{ session('status') }}</p>@endif
     @yield('content')
-    <p class="footer">Joinara MVP — undangan digital wedding-first.</p>
+    @if (!request()->is('/'))<p class="footer">Joinara MVP — undangan digital wedding-first.</p>@endif
 </div>
 </body>
 </html>

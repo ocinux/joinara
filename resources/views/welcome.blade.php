@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<main class="landing">
+<main id="landing-main" class="landing">
     <section class="hero">
         <h1>Undangan digital untuk pernikahan Anda.<br />Selesai dalam hitungan menit.</h1>
         <p class="tagline">Undangan ber-tautan unik, RSVP, dan QR check-in. Satu aplikasi, di server Anda sendiri.</p>
@@ -48,12 +48,12 @@
         </ol>
     </section>
 
-    <footer class="landing-footer">
+    <div class="landing-footer">
         <span>Joinara — undangan digital wedding-first.</span>
         @if (Route::has('privacy'))
             <a href="{{ route('privacy') }}">Privasi</a>
         @endif
-    </footer>
+    </div>
 </main>
 <style>
 .landing { padding-top: 1.5rem; }
@@ -67,8 +67,9 @@
 .step-n { color: #64748b; font-variant-numeric: tabular-nums; font-size: .85rem; min-width: 2ch; padding-top: .15rem; }
 .steps h3 { font-size: 1rem; margin-bottom: .2rem; }
 .steps p { color: #475569; margin: 0; font-size: .95rem; }
-.landing-footer { display: flex; justify-content: space-between; gap: .5rem; padding: 1rem .5rem; border-top: 1px solid #e2e8f0; color: #64748b; font-size: .85rem; }
+.landing-footer { display: flex; justify-content: space-between; gap: .5rem; padding: 1rem .5rem; border-top: 1px solid #e2e8f0; color: #64748b; font-size: .85rem; margin-top: 1rem; }
 .landing-footer a { color: #64748b; text-decoration: underline; text-underline-offset: 3px; }
+#landing-main ~ .footer { display: none; }
 @media (prefers-reduced-motion: no-preference) { .hero { animation: up .3s ease-out; } @keyframes up { from { opacity: 0; transform: translateY(6px); } } }
 </style>
 @endsection

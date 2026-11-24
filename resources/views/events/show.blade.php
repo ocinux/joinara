@@ -4,7 +4,7 @@
 @section('content')
     <h1>{{ $event->name }}</h1>
     <div class="card">
-        <p><strong>Pasangan:</strong> {{ $event->partner_1 ?? '—' }} {{ $event->partner_2 ? '&amp; '.$event->partner_2 : '' }}</p>
+        <p><strong>Pasangan:</strong> {{ $event->partner_1 ?? '—' }} {{ $event->partner_2 ? ' & '.$event->partner_2 : '' }}</p>
         <p><strong>Tanggal:</strong> {{ $event->starts_at->format('d M Y H:i') }}</p>
         <p><strong>Lokasi:</strong> {{ $event->location ?? '—' }}</p>
 
@@ -15,7 +15,7 @@
 
         <h2>QR check-in</h2>
         <p>Tampilkan/scan tautan ini untuk check-in tamu.</p>
-        <div class="qr">{{ \App\Support\Qr::svg($checkinUrl) }}</div>
+        <div class="qr">{!! \App\Support\Qr::svg($checkinUrl) !!}</div>
         <p><small>Mengarah ke: <code>{{ $checkinUrl }}</code></small></p>
     </div>
     <form method="POST" action="{{ route('events.destroy', $event) }}"

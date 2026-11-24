@@ -81,8 +81,8 @@ class InvitationTokenTest extends TestCase
 
         $response = $this->actingAs($owner)->get("/events/{$event->id}");
         $response->assertOk();
-        // Blade's {{ }} escapes; search the escaped version.
-        $response->assertSee('&lt;svg', false);
+        // Qr::svg must render unescaped so the browser gets a real <svg> element.
+        $response->assertSee('<svg', false);
         $response->assertSee(htmlspecialchars($checkinUrl), false);
     }
 

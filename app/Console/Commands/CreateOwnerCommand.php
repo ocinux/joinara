@@ -83,9 +83,9 @@ class CreateOwnerCommand extends Command
         $event = $user->events()->first();
 
         $this->info('=== JOINARA DEMO ===');
-        $this->line('Email:    demo@joinara.test');
+        $this->line('Email:    ' . $user->email);
         $this->line('Password: ' . $password);
-        $this->line('Event:    ' . $event->name . ' (undangan: /u/' . $event->token . ')');
+        $this->line('Event:    ' . $event->name . ' (undangan: /u/' . $event->invitation_token . ')');
         $this->warn('Password ini hanya ditampilkan sekali. Reset dengan jalankan ulang --demo.');
         return Command::SUCCESS;
     }

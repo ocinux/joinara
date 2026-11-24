@@ -3,58 +3,71 @@
 @section('title', 'Joinara — Undangan Digital')
 
 @section('navbar-right')
-    <a class="btn-nav" href="{{ route('login') }}">Masuk owner</a>
+    <a class="btn-nav" href="{{ route('login') }}">Masuk</a>
 @endsection
 
 @section('content')
-<div class="landing">
-    <div class="hero">
-        <h1>Undangan digital untuk momen paling berharga.</h1>
-        <p class="tagline">Wedding-first. Undangan, RSVP, dan QR check-in dalam satu aplikasi yang bisa Anda kendalikan sendiri.</p>
-        <div class="cta-group">
-            <a class="btn" href="{{ route('login') }}">Buka admin panel</a>
-            <a class="btn btn-ghost" href="#fitur">Pelajari fitur</a>
-        </div>
-    </div>
+<main class="landing">
+    <section class="hero">
+        <h1>Undangan digital untuk pernikahan Anda.<br />Selesai dalam hitungan menit.</h1>
+        <p class="tagline">Undangan ber-tautan unik, RSVP, dan QR check-in. Satu aplikasi, di server Anda sendiri.</p>
+        <a class="btn" href="{{ route('login') }}">Mulai buat undangan</a>
+    </section>
 
-    <div id="fitur" class="features">
-        <div class="card">
-            <h2>Undangan ber-token</h2>
-            <p>Tamu buka link unik tanpa perlu login. Token unguessable; token tidak valid mengembalikan 404.</p>
-        </div>
-        <div class="card">
-            <h2>RSVP &amp; guest list</h2>
-            <p>RSVP otomatis tercatat ke guest list. Owner mengelola daftar tamu dan mengekspor CSV.</p>
-        </div>
-        <div class="card">
-            <h2>QR check-in</h2>
-            <p>Check-in di hari-H lewat QR undangan, dengan fallback manual. Tanpa layanan pihak ketiga.</p>
-        </div>
-        <div class="card">
-            <h2>Data milik Anda</h2>
-            <p>Semua tersimpan di SQLite lokal. Self-hosted, tanpa biaya langganan, tanpa iklan.</p>
-        </div>
-    </div>
+    <section class="steps">
+        <h2>Cara kerja</h2>
+        <ol>
+            <li>
+                <span class="step-n">01</span>
+                <div>
+                    <h3>Buat event</h3>
+                    <p>Nama pasangan, tanggal, lokasi. Satu menit.</p>
+                </div>
+            </li>
+            <li>
+                <span class="step-n">02</span>
+                <div>
+                    <h3>Bagikan tautannya</h3>
+                    <p>Setiap undangan punya tautan unik dan QR. Cetak, kirim chat, tempel di meja.</p>
+                </div>
+            </li>
+            <li>
+                <span class="step-n">03</span>
+                <div>
+                    <h3>Tamu buka, tanpa app</h3>
+                    <p>Link dibuka di browser apa pun. RSVP tercatat, check-in lewat QR di hari-H.</p>
+                </div>
+            </li>
+            <li>
+                <span class="step-n">04</span>
+                <div>
+                    <h3>Kelola dari satu tempat</h3>
+                    <p>Guest list, status RSVP, dan check-in tampil di dashboard admin Anda.</p>
+                </div>
+            </li>
+        </ol>
+    </section>
 
-    <div class="card demo-box">
-        <h2>Mencoba demo</h2>
-        <p>Panel admin ada di <code>/admin</code>. Buat akun owner lewat terminal:</p>
-        <pre><code>php artisan joinara:owner</code></pre>
-        <p>Kredensial muncul di terminal. Lalu masuk lewat <a href="{{ route('login') }}">halaman login</a>.</p>
-    </div>
-</div>
+    <footer class="landing-footer">
+        <span>Joinara — undangan digital wedding-first.</span>
+        @if (Route::has('privacy'))
+            <a href="{{ route('privacy') }}">Privasi</a>
+        @endif
+    </footer>
+</main>
 <style>
 .landing { padding-top: 1.5rem; }
-.hero { text-align: center; padding: 2.5rem .5rem 1.5rem; }
-.hero h1 { font-size: 1.6rem; line-height: 1.3; margin-bottom: .75rem; }
-.tagline { color: #475569; margin-bottom: 1.25rem; }
-.cta-group { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
-.btn-ghost { background: #e2e8f0; color: #0f172a; }
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .75rem; }
-.features h2 { font-size: 1rem; margin-bottom: .35rem; }
-.demo-box code { background: #f1f5f9; padding: .15rem .35rem; border-radius: .3rem; }
-.demo-box pre code { white-space: pre-wrap; font-size: .8rem; }
-.demo-box pre { background: #0f172a; color: #e2e8f0; padding: .75rem; border-radius: .5rem; overflow-x: auto; margin: .5rem 0 1rem; }
-@media (prefers-reduced-motion: no-preference) { .hero { animation: up .3s ease-out; } @keyframes up { from { opacity: 0; transform: translateY(6px);} } }
+.hero { text-align: center; padding: 3rem .5rem 2.5rem; }
+.hero h1 { font-size: 1.75rem; line-height: 1.25; letter-spacing: -.02em; margin-bottom: .75rem; }
+.tagline { color: #475569; margin-bottom: 1.5rem; }
+.steps { max-width: 36rem; margin: 0 auto; padding: 0 .5rem 2.5rem; }
+.steps h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+.steps ol { list-style: none; margin: 0; padding: 0; }
+.steps li { display: flex; gap: 1rem; padding: .75rem 0; border-top: 1px solid #e2e8f0; }
+.step-n { color: #94a3b8; font-variant-numeric: tabular-nums; font-size: .85rem; padding-top: .15rem; }
+.steps h3 { font-size: 1rem; margin-bottom: .15rem; }
+.steps p { color: #475569; margin: 0; }
+.landing-footer { display: flex; justify-content: space-between; gap: .5rem; padding: 1rem .5rem; border-top: 1px solid #e2e8f0; color: #64748b; font-size: .85rem; }
+@media (prefers-reduced-motion: no-preference) { .hero { animation: up .3s ease-out; } @keyframes up { from { opacity: 0; transform: translateY(6px); } } }
 </style>
 @endsection

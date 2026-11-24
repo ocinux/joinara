@@ -45,6 +45,8 @@ php artisan joinara:owner
 
 Simpan kredensial di password manager. Jangan commit file `.env` (sudah di `.gitignore`).
 
+> ⚠️ Seeder tidak membuat user apa pun (sejak fix QA PR #16). `db:seed` / `migrate --seed` hanya mencetak pesan pengingat; buat owner via `joinara:owner`.
+
 ## Struktur MVP
 
 | Model | Tabel | Tujuan |

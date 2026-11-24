@@ -1,0 +1,53 @@
+# Modern Web Guidance — Referenced Guides
+
+## Queries run (modern-web-guidance search)
+
+1. "form validation errors"
+2. "responsive mobile layout"
+3. "typography font loading"
+4. "accessible form inputs labels"
+5. "css animation reduced motion"
+6. "loading skeleton states"
+7. "dialog modal confirmation"
+
+## IDs retrieved + key applicable points (for this spec)
+
+### forms (`/var/folders/q9/nks4w3yd6yd_qfrjsnzczc840000gn/T/mwg-guide-28165-1795488047767.md`)
+- **Form element**: wrap controls; action/method; visible label above input (stacked); `aria-invalid`, `aria-describedby`.
+- **Selection control matrix**: 2–5 options → radio buttons visible; use `<select>` only if space constrained.
+- **Validation timing**: trigger on `blur` (if edited) / `submit`; clear on `input`. Never every keystroke.
+- **Touch targets ≥ 48px** on coarse pointer; `font-size: max(1rem, 1em)` anti-iOS zoom.
+- **Do not use `type="number"` for short numeric values** (e.g., party size) due to spinners/leading-zero issues — prefer `type="text" inputmode="numeric"`.
+- **Disable submit button after valid click** to prevent double-posts.
+
+### responsive-design
+- Use dynamic viewport units `dvh`/`dvw` instead of `vh`/`vw`.
+- `aspect-ratio` reserved for media to reduce CLS.
+- Responsive typography via `clamp()` (mix viewport+relative), min/max within ≤ 2.5× range.
+
+### accessibility (`/var/folders/q9/nks4w3yd6yd_qfrjsnzczc840000gn/T/mwg-guide-28246-1795488049845.md`)
+- Semantic landmarks (`<header>`, `<main>`, `<nav>`, `<footer>`).
+- One `<h1>` per page; heading hierarchy (no skipped levels).
+- Focus indicators via `:focus-visible`; outline offset 3px; minimum contrast 3:1.
+- Target sizes ≥ 24x24; bump on coarse pointer (`@media (pointer: coarse)`).
+- Images: informative alt-text; decorative = `alt=""`.
+- Live regions: `role="alert"` for critical errors; `role="status"` + `polite` for success.
+- Don't hide interactive elements from assistive tech; match ARIA to behavior.
+- Respect OS text scale via rem-based sizing.
+
+### typography
+- Unitless `line-height` (inherit scaling).
+- Max paragraph width ~60ch (~80 chars) to avoid river whitespace.
+- No fixed block-size on text-containing elements; use `min-block-size` if needed.
+- `overflow-wrap: break-word` for long URLs.
+- Prefer bold over all-caps emphasis; semantic `<em>`/`<strong>`.
+
+### motion
+- Animate compositor-only properties (`opacity`, `transform`).
+- `transition-behavior: allow-discrete`, `@starting-style` for discrete state transitions.
+- Respect `prefers-reduced-motion`: opt-in via `@media (prefers-reduced-motion: no-preference)`, NOT global 0.01ms override.
+- Non-spatial transitions (color, background-color) remain enabled.
+
+## Skill usage note
+
+Skill `modern-web-guidance` (v 2026_11_16-268fb9ea) was invoked BEFORE writing UI specifications (as mandated by SOUL.md). All cited principles were cross-checked into design decisions below.

@@ -10,10 +10,15 @@ class ExampleTest extends TestCase
     /**
      * A basic test example.
      */
-    public function test_the_application_redirects_root_to_dashboard(): void
+    public function test_the_application_serves_public_landing_page(): void
     {
-        $response = $this->get('/');
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('Undangan digital', false);
+    }
 
-        $response->assertRedirect('/dashboard');
+    public function test_admin_alias_redirects_to_dashboard(): void
+    {
+        $this->get('/admin')->assertRedirect('/dashboard');
     }
 }
